@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { Header } from './components/layout/Header';
@@ -10,7 +11,7 @@ import { useSudokuContext } from './context/SudokuContext';
 /**
  * Game is the main React component.
  */
-export const Game: React.FC<{}> = () => {
+export const SudokuGame: React.FC<{}> = () => {
   /**
    * All the variables for holding state:
    * gameArray: Holds the current state of the game.
