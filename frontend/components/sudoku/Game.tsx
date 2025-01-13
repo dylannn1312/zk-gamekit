@@ -28,23 +28,23 @@ export const SudokuGame: React.FC<{}> = () => {
    * won: Is the game 'won'?
    */
   let { numberSelected, setNumberSelected,
-        gameArray, setGameArray,
-        difficulty, setDifficulty,
-        setTimeGameStarted,
-        fastMode, setFastMode,
-        cellSelected, setCellSelected,
-        initArray, setInitArray,
-        setWon } = useSudokuContext();
-  let [ mistakesMode, setMistakesMode ] = useState<boolean>(false);
-  let [ history, setHistory ] = useState<string[][]>([]);
-  let [ solvedArray, setSolvedArray ] = useState<string[]>([]);
-  let [ overlay, setOverlay ] = useState<boolean>(false);
+    gameArray, setGameArray,
+    difficulty, setDifficulty,
+    setTimeGameStarted,
+    fastMode, setFastMode,
+    cellSelected, setCellSelected,
+    initArray, setInitArray,
+    setWon } = useSudokuContext();
+  let [mistakesMode, setMistakesMode] = useState<boolean>(false);
+  let [history, setHistory] = useState<string[][]>([]);
+  let [solvedArray, setSolvedArray] = useState<string[]>([]);
+  let [overlay, setOverlay] = useState<boolean>(false);
 
   /**
    * Creates a new game and initializes the state variables.
    */
   function _createNewGame(e?: React.ChangeEvent<HTMLSelectElement>) {
-    let [ temporaryInitArray, temporarySolvedArray ] = getUniqueSudoku(difficulty, e);
+    let [temporaryInitArray, temporarySolvedArray] = getUniqueSudoku(difficulty, e);
 
     setInitArray(temporaryInitArray);
     setGameArray(temporaryInitArray);
@@ -61,11 +61,11 @@ export const SudokuGame: React.FC<{}> = () => {
    */
   function _isSolved(index: number, value: string) {
     if (gameArray.every((cell: string, cellIndex: number) => {
-          if (cellIndex === index)
-            return value === solvedArray[cellIndex];
-          else
-            return cell === solvedArray[cellIndex];
-        })) {
+      if (cellIndex === index)
+        return value === solvedArray[cellIndex];
+      else
+        return cell === solvedArray[cellIndex];
+    })) {
       return true;
     }
     return false;
@@ -148,7 +148,7 @@ export const SudokuGame: React.FC<{}> = () => {
     if (fastMode) {
       setNumberSelected(number)
     } else if (cellSelected !== -1) {
-      _userFillCell(cellSelected,number);
+      _userFillCell(cellSelected, number);
     }
   }
 
@@ -157,7 +157,7 @@ export const SudokuGame: React.FC<{}> = () => {
    * try to Undo the latest change.
    */
   function onClickUndo() {
-    if(history.length) {
+    if (history.length) {
       let tempHistory = history.slice();
       let tempArray = tempHistory.pop();
       setHistory(tempHistory);
@@ -171,7 +171,7 @@ export const SudokuGame: React.FC<{}> = () => {
    * try to delete the cell.
    */
   function onClickErase() {
-    if(cellSelected !== -1 && gameArray[cellSelected] !== '0') {
+    if (cellSelected !== -1 && gameArray[cellSelected] !== '0') {
       _fillCell(cellSelected, '0');
     }
   }
@@ -189,7 +189,7 @@ export const SudokuGame: React.FC<{}> = () => {
   /**
    * Toggle Mistakes Mode
    */
-  function  onClickMistakesMode() {
+  function onClickMistakesMode() {
     setMistakesMode(!mistakesMode);
   }
 
@@ -217,13 +217,13 @@ export const SudokuGame: React.FC<{}> = () => {
    */
   useEffect(() => {
     _createNewGame();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
-      <div className={overlay?"container blur":"container"}>
-        <Header onClick={onClickNewGame}/>
+      <div className={overlay ? "container blur" : "container"}>
+        <Header onClick={onClickNewGame} />
         <div className="innercontainer">
           <GameSection
             onClick={(indexOfArray: number) => onClickCell(indexOfArray)}
@@ -240,11 +240,11 @@ export const SudokuGame: React.FC<{}> = () => {
         </div>
         <Footer />
       </div>
-      <div className= { overlay
-                        ? "overlay overlay--visible"
-                        : "overlay"
-                      }
-           onClick={onClickOverlay}
+      <div className={overlay
+        ? "overlay overlay--visible"
+        : "overlay"
+      }
+        onClick={onClickOverlay}
       >
         <h2 className="overlay__text">
           You <span className="overlay__textspan1">solved</span> <span className="overlay__textspan2">it!</span>
