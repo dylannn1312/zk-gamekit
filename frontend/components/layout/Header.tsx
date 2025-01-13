@@ -41,22 +41,19 @@ function ConnectWallet() {
     return (
         isWalletConnected ?
             <>
-                <Button onClick={openView} className='h-full'>
+                <Button onClick={openView} className='h-full flex items-center gap-2'>
                     <Image
                         alt={'Chain icon'}
                         src={logoUrl ?? ''}
                         width={28}
                         height={28}
                     />
-                    {/* <ArrowDownIcon /> */}
-                </Button>
-                <Button className='h-full'>
+
                     <Text strong>{username}</Text>
-                    {/* <ArrowDownIcon /> */}
                 </Button>
             </>
             :
-            <Button onClick={connect}>
+            <Button onClick={connect} type="primary">
                 <Text strong>Connect Wallet</Text>
             </Button>
     )

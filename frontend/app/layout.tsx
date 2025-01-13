@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import CosmosChainProvider from "@/components/provider/CosmosChainProvider";
 import "@interchain-ui/react/styles";
-
-const inter = Inter({ subsets: ["latin"] });
+import { ConfigProvider } from "antd";
+import { THEME } from "@/styles/theme";
+import { FONT } from "@/styles/font";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,10 +19,39 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={FONT.className}>
         <CosmosChainProvider>
-          <Header />
-          {children}
+          <ConfigProvider
+            theme={{
+              token: {
+                colorText: THEME.TEXT_COLOR,
+                colorPrimary: THEME.PRIMARY_COLOR,
+                fontFamily: FONT.style.fontFamily
+              },
+              components: {
+                Menu: {
+                  itemBg: 'transparent',
+                },
+                Button: {
+                  defaultBg: THEME.LIGHT_SECONDARY_COLOR,
+                  defaultHoverBg: THEME.HOVER_LIGHT_SECONDARY_COLOR,
+                  defaultActiveBg: THEME.HOVER_LIGHT_SECONDARY_COLOR,
+                  lineWidth: 0,
+                  fontWeight: 'inherit',
+                  fontSize: 'inherit',
+                },
+                Modal: {
+                  contentBg: 'transparent',
+                },
+                Typography: {
+                  fontSize: 'inherit',
+                },
+              }
+            }}
+          >
+            <Header />
+            {children}
+          </ConfigProvider>
         </CosmosChainProvider>
       </body>
     </html>
