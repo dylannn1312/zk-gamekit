@@ -38,7 +38,7 @@ impl Game for SudokuGame {
 
         // let proof: SP1ProofWithPublicValues = serde_json::from_slice(include_bytes!("../../proof.json"))?;
         // let vk: SP1VerifyingKey = serde_json::from_slice(include_bytes!("../../vk.json"))?;
-        fs::write("proof.json", serde_json::to_string(&proof)?)?;
+        fs::write("../../proof.json", serde_json::to_string(&proof)?)?;
         fs::write("vk.json", serde_json::to_string(&vk)?)?;
         println!("Proof created successfully");
 
