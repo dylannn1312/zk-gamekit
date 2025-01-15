@@ -6,6 +6,7 @@ import { Button, Menu, MenuProps, Typography } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import ArrowDownIcon from "../common/icons/ArrowDownIcon";
 
 const { Text } = Typography;
 
@@ -73,6 +74,7 @@ function ConnectWallet() {
                     />
 
                     <Text strong>{username}</Text>
+                    <ArrowDownIcon />
                 </Button>
             </>
             :

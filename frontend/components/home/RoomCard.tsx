@@ -4,6 +4,8 @@ import { Button, Typography } from "antd";
 import Link from "next/link";
 import PeopleIcon from "../common/icons/PeopleIcon";
 import GameStatusTag from "../common/RoomStatusTag";
+import HiddenCopyableText from "../common/HiddenCopyableText";
+import { shortAddress } from "@/utils/chain";
 
 const { Title, Text } = Typography;
 
@@ -34,7 +36,10 @@ export default function RoomCard({
                     <PeopleIcon color={roomStatusColor[status]} size={16} />
                     <Text>{`${playerCount}/${maxPlayers}`}</Text>
                 </div>
-                <Text><strong>Creator: </strong>{creator}</Text>
+                <HiddenCopyableText textToCopy={creator}>
+                    <strong>Creator: </strong>
+                    {shortAddress(creator)}
+                </HiddenCopyableText>
                 <Text><strong>Deposit: </strong><span  className="uppercase">{depositPrice} {process.env.DENOM}</span></Text>
                 <Text><strong>Pool: </strong><span className="uppercase">{depositPrice * playerCount} {process.env.DENOM}</span></Text>
             </div>

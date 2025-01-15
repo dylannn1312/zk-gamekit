@@ -27,7 +27,7 @@ const allGames: Pick<GameInfo, 'activeRooms' | 'img' | 'name'>[] = [
 const allRooms: RoomInfo[] = [
   {
     idByGame: 1,
-    creator: "xion14",
+    creator: "xion15n98r9fgxrysepr4qnw4m0zjf0yh4w7deagq44",
     status: RoomStatus.Pending,
     playerCount: 2,
     maxPlayers: 4,
@@ -40,7 +40,7 @@ const allRooms: RoomInfo[] = [
   },
   {
     idByGame: 1,
-    creator: "xion12",
+    creator: "xion15n98r9fgxrysepr4qnw4m0zjf0yh4w7deagq44",
     status: RoomStatus.Finished,
     playerCount: 3,
     maxPlayers: 4,
@@ -53,7 +53,7 @@ const allRooms: RoomInfo[] = [
   },
   {
     idByGame: 2,
-    creator: "xion14",
+    creator: "xion15n98r9fgxrysepr4qnw4m0zjf0yh4w7deagq44",
     status: RoomStatus.Playing,
     playerCount: 2,
     maxPlayers: 4,
