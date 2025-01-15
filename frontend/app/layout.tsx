@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={FONT.className}>
+      <body className={`${FONT.className} bg-secondary text-text px-60`}>
         <CosmosChainProvider>
           <ConfigProvider
             theme={{
@@ -33,19 +33,24 @@ export default function RootLayout({
                   itemBg: 'transparent',
                 },
                 Button: {
-                  defaultBg: THEME.LIGHT_SECONDARY_COLOR,
-                  defaultHoverBg: THEME.HOVER_LIGHT_SECONDARY_COLOR,
-                  defaultActiveBg: THEME.HOVER_LIGHT_SECONDARY_COLOR,
+                  defaultBg: THEME.BUTTON_COLOR,
+                  defaultHoverBg: THEME.BUTTON_HOVER_COLOR,
+                  defaultActiveBg: THEME.BUTTON_HOVER_COLOR,
                   lineWidth: 0,
                   fontWeight: 'inherit',
                   fontSize: 'inherit',
+                  colorPrimaryText: THEME.SECONDARY_COLOR,
                 },
                 Modal: {
                   contentBg: 'transparent',
                 },
                 Typography: {
                   fontSize: 'inherit',
+                  colorText: 'currentColor',
                 },
+                Input: {
+                  colorBgContainer: THEME.BUTTON_COLOR
+                }
               }
             }}
           >
